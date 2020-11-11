@@ -1,6 +1,6 @@
 name: wazo-cel
 namespace: official
-version: 1.1.0
+version: 1.2.0
 author: Wazo Communication inc.
 display_name: CEL API
 min_wazo_version: 20.13

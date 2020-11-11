@@ -4,7 +4,11 @@
 from flask import request
 from xivo.auth_verifier import required_acl
 from xivo.tenant_flask_helpers import Tenant
-from wazo_call_logd.rest_api import AuthResource
+
+try:
+    from wazo_call_logd.rest_api import AuthResource
+except ImportError:
+    from wazo_call_logd.http import AuthResource
 
 from .schema import (
     CELListRequestSchema,

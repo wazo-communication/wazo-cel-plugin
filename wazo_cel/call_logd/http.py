@@ -3,6 +3,7 @@
 
 from flask import request
 from xivo.auth_verifier import required_acl
+from xivo.tenant_flask_helpers import Tenant
 from wazo_call_logd.rest_api import AuthResource
 
 from .schema import (
@@ -19,6 +20,8 @@ class CELResource(AuthResource):
 
     @required_acl('call-logd.cel.read')
     def get(self):
+        tenant_uuid = Tenant.autodetect().uuid
         args = CELListRequestSchema().load(request.args)
+        args['tenant_uuid'] = tenant_uuid
         cels = self.cel_service.list(args)
         return CELSchema().dump(cels, many=True)

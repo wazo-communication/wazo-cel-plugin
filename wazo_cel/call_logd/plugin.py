@@ -7,6 +7,7 @@ from wazo_auth_client import Client as AuthClient
 from wazo_call_logd.database.helpers import new_db_session
 from wazo_call_logd.database.queries.base import BaseDAO
 from xivo_dao.alchemy.cel import CEL as CELSchema
+from xivo.tenant_helpers import UnauthorizedTenant
 
 from .http import CELResource
 
@@ -17,17 +18,22 @@ class Plugin:
     def load(self, dependencies):
         api = dependencies['api']
         config = dependencies['config']
+        token_renewer = dependencies['token_renewer']
+
         auth_client = AuthClient(**config['auth'])
         dao = CELDAO(new_db_session(config['db_uri']))
-        cel_service = CELService(dao)
+        self._cel_service = CELService(dao)
+        token_renewer.subscribe_to_next_token_details_change(
+            self.set_service_tenant_uuid
+        )
 
         api.add_resource(
             CELResource,
             '/cel',
-            resource_class_args=[auth_client, cel_service],
+            resource_class_args=[auth_client, self._cel_service],
         )
 
-    def set_default_tenant_uuid(self, token):
+    def set_service_tenant_uuid(self, token):
         self._cel_service.set_service_tenant_uuid(token['metadata']['tenant_uuid'])
 
 
@@ -37,6 +43,14 @@ class CELService:
         self._service_tenant_uuid = None
 
     def list(self, search_params):
+        if not self._service_tenant_uuid:
+            logger.error(
+                'Service tenant is not initialized, rejecting request as Unauthorized'
+            )
+            raise UnauthorizedTenant(search_params['tenant_uuid'])
+        if self._service_tenant_uuid != search_params['tenant_uuid']:
+            raise UnauthorizedTenant(search_params['tenant_uuid'])
+
         cel = self._cel_dao.find_all(search_params)
         return cel
 

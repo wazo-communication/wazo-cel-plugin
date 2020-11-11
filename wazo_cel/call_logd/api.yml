@@ -1,0 +1,83 @@
+paths:
+  /cel:
+    get:
+      summary: List CEL
+      description: '**Required ACL:** `call-logd.cel.read`'
+      tags:
+        - cel
+      parameters:
+      - $ref: '#/parameters/limit'
+      - $ref: '#/parameters/idbeg'
+      responses:
+        '200':
+          description: List of CEL
+          schema:
+            $ref: '#/definitions/CELList'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+      produces:
+        - application/json
+        - text/csv; charset=utf-8
+
+parameters:
+  idbeg:
+    name: idbeg
+    description: Ignore CEL created before the given CEL ID.
+    in: query
+    type: integer
+    required: false
+
+definitions:
+  CELList:
+    type: array
+    items:
+      $ref: '#/definitions/CEL'
+  CEL:
+    type: object
+    properties:
+      id:
+          type: string
+      eventtype:
+          type: string
+      eventtime:
+          type: string
+      userdeftype:
+          type: string
+      cid_name:
+          type: string
+      cid_num:
+          type: string
+      cid_ani:
+          type: string
+      cid_rdnis:
+          type: string
+      cid_dnid:
+          type: string
+      exten:
+          type: string
+      context:
+          type: string
+      channame:
+          type: string
+      appname:
+          type: string
+      appdata:
+          type: string
+      amaflags:
+          type: string
+      accountcode:
+          type: string
+      peeraccount:
+          type: string
+      uniqueid:
+          type: string
+      linkedid:
+          type: string
+      userfield:
+          type: string
+      peer:
+          type: string
+      call_log_id:
+          type: string
+      extra:
+          type: string

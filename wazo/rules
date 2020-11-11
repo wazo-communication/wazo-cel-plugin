@@ -1,0 +1,31 @@
+#!/bin/sh
+# Copyright 2019 The Wazo Authors  (see the AUTHORS file)
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+case "$1" in
+    build)
+        python3 setup.py bdist -d dist/python3
+    ;;
+
+    package)
+        tar xvf dist/python3/wazo_cel-*.tar.gz -C ${pkgdir}
+        cp -R etc ${pkgdir}/
+    ;;
+
+    install)
+        systemctl restart wazo-call-logd
+    ;;
+
+    uninstall)
+        rm -f /etc/wazo-call-logd/conf.d/50-wazo-cel.yml
+        systemctl restart wazo-call-logd || true
+    ;;
+
+    postrm)
+    ;;
+
+    *)
+        echo "$0 called with unknown argument '$1'" >&2
+        exit 1
+    ;;
+esac

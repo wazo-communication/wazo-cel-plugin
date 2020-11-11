@@ -1,0 +1,12 @@
+name: wazo-cel
+namespace: official
+version: 1.0.0
+author: Wazo Communication inc.
+display_name: CEL API
+min_wazo_version: 20.15
+tags:
+  - api
+  - call_logs
+  - cel
+  - http
+homepage: http://wazo-platform.org

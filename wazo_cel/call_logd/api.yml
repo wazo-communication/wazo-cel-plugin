@@ -8,6 +8,7 @@ paths:
       parameters:
       - $ref: '#/parameters/limit'
       - $ref: '#/parameters/idbeg'
+      - $ref: '#/parameters/linkedid'
       responses:
         '200':
           description: List of CEL
@@ -25,6 +26,12 @@ parameters:
     description: Ignore CEL created before the given CEL ID.
     in: query
     type: integer
+    required: false
+  linkedid:
+    name: linkedid
+    description: List CEL of a specific LinkedID.
+    in: query
+    type: string
     required: false
 
 definitions:

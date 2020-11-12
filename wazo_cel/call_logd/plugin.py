@@ -1,4 +1,4 @@
-# Copyright 2020 The Wazo Authors  (see the AUTHORS file)
+# Copyright 2020-2021 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import logging
@@ -64,7 +64,7 @@ class CELDAO(BaseDAO):
             query = session.query(CELSchema)
             query = query.order_by(CELSchema.id.asc())
             if params.get('idbeg'):
-                query = query.filter(CELSchema.id >= params['idbeg'])
+                query = query.filter(CELSchema.id > params['idbeg'])
             if params.get('linkedid'):
                 query = query.filter(CELSchema.linkedid == params['linkedid'])
             if params.get('limit'):

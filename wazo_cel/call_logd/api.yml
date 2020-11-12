@@ -22,7 +22,7 @@ paths:
 parameters:
   idbeg:
     name: idbeg
-    description: Ignore CEL created before the given CEL ID.
+    description: Ignore CEL created after the given CEL ID, excluding the given CEL ID.
     in: query
     type: integer
     required: false

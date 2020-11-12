@@ -64,7 +64,7 @@ class CELDAO(BaseDAO):
             query = session.query(CELSchema)
             query = query.order_by(CELSchema.id.asc())
             if params.get('idbeg'):
-                query = query.filter(CELSchema.id >= params['idbeg'])
+                query = query.filter(CELSchema.id > params['idbeg'])
             if params.get('limit'):
                 query = query.limit(params['limit'])
 

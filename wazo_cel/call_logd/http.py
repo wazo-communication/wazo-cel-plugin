@@ -28,4 +28,5 @@ class CELResource(AuthResource):
         args = CELListRequestSchema().load(request.args)
         args['tenant_uuid'] = tenant_uuid
         cels = self.cel_service.list(args)
-        return CELSchema().dump(cels, many=True)
+        result = {'items': CELSchema().dump(cels, many=True)}
+        return result

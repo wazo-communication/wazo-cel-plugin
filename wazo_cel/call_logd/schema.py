@@ -14,7 +14,7 @@ class CELListRequestSchema(Schema):
     class Meta:
         unknown = EXCLUDE
 
-    idbeg = fields.String(validate=Length(min=1))
+    after_id = fields.String(validate=Length(min=1))
     limit = fields.Integer(validate=Range(min=0), missing=1000)
     linkedid = fields.String(validate=Length(min=1))
 

@@ -7,7 +7,7 @@ paths:
         - cel
       parameters:
       - $ref: '#/parameters/limit'
-      - $ref: '#/parameters/idbeg'
+      - $ref: '#/parameters/after_id'
       - $ref: '#/parameters/linkedid'
       responses:
         '200':
@@ -21,9 +21,9 @@ paths:
         - text/csv; charset=utf-8
 
 parameters:
-  idbeg:
-    name: idbeg
-    description: Ignore CEL created before the given CEL ID.
+  after_id:
+    name: after_id
+    description: Ignore CEL created after the given CEL ID, exluding the given CEL ID.
     in: query
     type: integer
     required: false

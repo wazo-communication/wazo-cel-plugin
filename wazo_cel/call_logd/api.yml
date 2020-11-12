@@ -36,9 +36,12 @@ parameters:
 
 definitions:
   CELList:
-    type: array
-    items:
-      $ref: '#/definitions/CEL'
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/CEL'
   CEL:
     type: object
     properties:

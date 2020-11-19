@@ -13,7 +13,7 @@ Connect to your stack and authenticate as user root. Then run the following comm
 ```shell
 apt update
 apt install wazo-plugind-cli
-wazo-plugind-cli -c "install git https://github.com/wazo-communication/wazo-cel"
+wazo-plugind-cli -c "install git https://github.com/wazo-communication/wazo-cel-plugin"
 ```
 
 ## Usage

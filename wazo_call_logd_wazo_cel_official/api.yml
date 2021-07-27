@@ -9,6 +9,7 @@ paths:
       - $ref: '#/parameters/limit'
       - $ref: '#/parameters/after_id'
       - $ref: '#/parameters/linkedid'
+      - $ref: '#/parameters/uniqueid'
       responses:
         '200':
           description: List of CEL
@@ -30,6 +31,12 @@ parameters:
   linkedid:
     name: linkedid
     description: List CEL of a specific LinkedID.
+    in: query
+    type: string
+    required: false
+  uniqueid:
+    name: uniqueid
+    description: List CEL of a specific UniqueID.
     in: query
     type: string
     required: false

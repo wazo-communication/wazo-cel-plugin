@@ -1,4 +1,4 @@
-# Copyright 2020 The Wazo Authors  (see the AUTHORS file)
+# Copyright 2020-2021 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 
@@ -17,6 +17,7 @@ class CELListRequestSchema(Schema):
     after_id = fields.String(validate=Length(min=1))
     limit = fields.Integer(validate=Range(min=0), missing=1000)
     linkedid = fields.String(validate=Length(min=1))
+    uniqueid = fields.String(validate=Length(min=1))
 
 
 class CELSchema(Schema):

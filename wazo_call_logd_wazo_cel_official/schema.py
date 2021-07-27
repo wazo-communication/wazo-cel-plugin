@@ -18,6 +18,7 @@ class CELListRequestSchema(Schema):
     limit = fields.Integer(validate=Range(min=0), missing=1000)
     linkedid = fields.String(validate=Length(min=1))
     uniqueid = fields.String(validate=Length(min=1))
+    call_log_id = fields.String(validate=Length(min=1))
 
 
 class CELSchema(Schema):

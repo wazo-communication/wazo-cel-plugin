@@ -69,6 +69,8 @@ class CELDAO(BaseDAO):
                 query = query.filter(CELSchema.linkedid == params['linkedid'])
             if params.get('uniqueid'):
                 query = query.filter(CELSchema.uniqueid == params['uniqueid'])
+            if params.get('call_log_id'):
+                query = query.filter(CELSchema.call_log_id == params['call_log_id'])
             if params.get('limit'):
                 query = query.limit(params['limit'])
 

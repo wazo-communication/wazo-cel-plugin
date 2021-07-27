@@ -10,6 +10,7 @@ paths:
       - $ref: '#/parameters/after_id'
       - $ref: '#/parameters/linkedid'
       - $ref: '#/parameters/uniqueid'
+      - $ref: '#/parameters/call_log_id'
       responses:
         '200':
           description: List of CEL
@@ -37,6 +38,12 @@ parameters:
   uniqueid:
     name: uniqueid
     description: List CEL of a specific UniqueID.
+    in: query
+    type: string
+    required: false
+  call_log_id:
+    name: call_log_id
+    description: List CEL of a specific Call Log ID.
     in: query
     type: string
     required: false

@@ -6,6 +6,7 @@ paths:
       tags:
         - cel
       parameters:
+      - $ref: '#/parameters/tenantuuid'
       - $ref: '#/parameters/limit'
       - $ref: '#/parameters/after_id'
       - $ref: '#/parameters/linkedid'

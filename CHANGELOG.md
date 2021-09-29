@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.4.0
+
+* `/cel` has a new parameter `tenant_uuid`
+
+## 2.3.0
+
+* `/cel` has a new parameter `call_log_id`
+
+## 2.2.0
+
+* `/cel` has a new parameter `uniqueid`
+
+## 2.1.0
+
+* Plugin was renamed from `wazo-cel` to `wazo-cel-plugin`
+
 ## 2.0.1
 
 * Fix the OpenAPI documentation for `/cel` response body

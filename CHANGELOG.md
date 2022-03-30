@@ -2,7 +2,7 @@
 
 ## 2.4.0
 
-* `/cel` has a new parameter `tenant_uuid`
+* `/cel` now returns only CELs for the token's tenant. If the tenant is the `master` tenant, CELs of all tenants will be listed.
 
 ## 2.3.0
 

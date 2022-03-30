@@ -23,5 +23,6 @@ See the OpenAPI specification for wazo-call-logd.
 ## Security
 
 In order to use the API, the user must:
-* have permission to access the `master` tenant
 * have the `call-logd.cel.read` ACL
+
+The tenant is determined from the token. If the tenant is the `master` tenant, all CEL will be listed. Else, only CELs from the token's tenant will be listed.

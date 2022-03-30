@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.4.1
+
+* Documentation has been improved.
+
 ## 2.4.0
 
 * `/cel` now returns only CELs for the token's tenant. If the tenant is the `master` tenant, CELs of all tenants will be listed.

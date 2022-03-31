@@ -26,3 +26,7 @@ In order to use the API, the user must:
 * have the `call-logd.cel.read` ACL
 
 The tenant is determined from the token. If the tenant is the `master` tenant, all CEL will be listed. Else, only CELs from the token's tenant will be listed.
+
+## Limitations
+
+* When using a token's tenant to filter CELs of a tenant, the CEL will only be returned *after* the call has ended.

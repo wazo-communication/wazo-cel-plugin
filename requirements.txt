@@ -2,6 +2,6 @@ https://github.com/wazo-platform/wazo-auth-client/archive/master.zip
 https://github.com/wazo-platform/xivo-dao/archive/master.zip
 https://github.com/wazo-platform/xivo-lib-python/archive/master.zip
 https://github.com/wazo-platform/wazo-lib-rest-client/archive/master.zip  # from xivo-*-client
-flask==1.0.2
-marshmallow==3.0.0b14
-requests==2.21.0  # from xivo-*-client
+flask==1.1.2
+marshmallow==3.18.0
+requests==2.25.1  # from xivo-*-client

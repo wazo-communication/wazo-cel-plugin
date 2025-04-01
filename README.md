@@ -4,7 +4,7 @@ This package adds an HTTP API for exposing Channel Event Logs (CEL) from Asteris
 
 ## Wazo Platform version
 
-Wazo Platform version >= 20.15
+Wazo Platform version >= 25.01
 
 ## Installation
 
